@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/Content/Images/logo.png" type="image/gif" sizes="16x16">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    @Styles.Render("~/Content/LayoutAdminStyles")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <style>
+        .sidenav .dropBtn {
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+            margin: 0 auto !important;
+        }
+        .sidenav .title.title-medium{
+            text-transform: lowercase;
+        }
+        .sidenav .dropdown-content {
+            margin-top: 10px;
+            position: relative;
+            background: none;
+            display: block;
+            min-width: initial;
+            box-shadow: none;
+            padding: 12px 16px;
+        }
+        .sidenav a[target = "_parent"]{
+            display: none;
+        }
+    </style>
+    <div class="container body-content">
+        <div class="nav-side">
+            <nav class="sidenav" id="sidenav">
+                <div class="navbrand">
+                    @Html.Partial("_LoginPartial")
+
+                    <h2 class="title title-medium">@User.Identity.Name</h2>
+                </div>
+                <ul class="navmenu">
+                    <li class="navmenu-item"><a href="/role" class="navmenu-link">Role</a></li>
+                    <li class="navmenu-item"><a href="/Books" class="navmenu-link">Book</a></li>
+                    <li class="navmenu-item"><a href="/Categories" class="navmenu-link">Categories</a></li>
+                    <li class="navmenu-item"><a href="/Authors" class="navmenu-link">Authors</a></li>
+                    <li class="navmenu-item"><a href="/Providers" class="navmenu-link">Providers</a></li>
+                    <li class="navmenu-item"><a href="/Providers" class="navmenu-link">Providers</a></li>
+                    <li class="navmenu-item"><a href="/Publishers" class="navmenu-link">Publishers</a></li>
+                    <li class="navmenu-item"><a href="/ManageRole" class="navmenu-link">Manage Role</a></li>
+                    <li class="navmenu-item"><a href="/Orders" class="navmenu-link">Orders</a></li>
+                </ul>
+                <div class="navinfo">
+                    <div class="social">
+                        <a href="#" class="social-item"><i class="ion-logo-youtube"></i></a>
+                        <a href="#" class="social-item"><i class="ion-logo-twitter"></i></a>
+                        <a href="#" class="social-item"><i class="ion-logo-instagram"></i></a>
+                        <a href="#" class="social-item"><i class="ion-logo-linkedin"></i></a>
+                        <a href="#" class="social-item"><i class="ion-logo-github"></i></a>
+                    </div>
+                    <div class="attrib">
+                        <a class="btn btn-group-justified" href="javascript:document.getElementById('logoutForm').submit()">Log off &nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
+                    </div>
+                </div>
+            </nav>
+            <!-- Main -->
+            <header class="header">
+                <div class="burgermenu" id="burgermenu">
+                    <span class="burgermenu-open" id="openmenu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16">
+                            <g fill="#252a32" fill-rule="evenodd">
+                                <path d="M0 0h24v2H0zM0 7h24v2H0zM0 14h24v2H0z" />
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="burgermenu-close" id="closemenu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                            <path fill="#ffffff" fill-rule="evenodd" d="M17.778.808l1.414 1.414L11.414 10l7.778 7.778-1.414 1.414L10 11.414l-7.778 7.778-1.414-1.414L8.586 10 .808 2.222 2.222.808 10 8.586 17.778.808z" />
+                        </svg>
+                    </span>
+                </div>
+            </header>
+        </div>
+
+        @RenderBody()
+
+
+        <div class="backtotop">
+            <img src="~/Content/Images/top.svg" alt="Alternate Text" />
+        </div>
+
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/ChangeImg.js"></script>
+    <script src="~/Scripts/ajaxFilter.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

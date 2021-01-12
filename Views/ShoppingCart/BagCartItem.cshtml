@@ -1,0 +1,29 @@
+﻿@model TMDT.Models.Cart
+@if (Model != null)
+{
+    var priceAll = 0.0;
+    <div class="cart-hover">
+        <div class="name my-bold border-bottom p-3">Tên Sách</div>
+        <div class="price my-bold border-bottom p-3">Giá</div>
+        <div class="quantity my-bold border-bottom p-3">SL</div>
+        <div class="total my-bold border-bottom p-3">Thành tiền</div>
+        @foreach (var item in Model.Items)
+        {
+            double total = Convert.ToDouble(item._shopping_product.BookPrice * item._shopping_quantity);
+            <div class="name cart-cell p-3">@item._shopping_product.BookName</div>
+            <div class="price cart-cell p-3">@item._shopping_product.BookPrice $</div>
+            <div class="quantity cart-cell p-3">@item._shopping_quantity</div>
+            <div class="total cart-cell p-3">@total</div>
+            priceAll += total;
+        }
+    </div>
+    <div class="total-price border-top">
+        <span class="font-weight-bold">Tổng cộng</span>
+        <span>@priceAll</span>
+    </div>
+    <a class="btn btn-dark text-light" style="margin-top: 20px" href="/ShoppingCart/ShowToCart">Tới giỏ hàng...</a> }
+else
+{
+    <div>@ViewBag.nullCart</div>
+}
+
